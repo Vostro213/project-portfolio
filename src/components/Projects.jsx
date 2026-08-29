@@ -2,19 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 
 const projects = [
   {
-    img: '/cours1.png',
+    img: 'cours1.png',
     title: 'University Study Website',
     desc: 'Full-Stack Project built with <strong>PHP, MySQL, HTML, CSS, and JavaScript.</strong>',
     link: '#',
   },
   {
-    img: '/cours2.png',
+    img: 'cours2.png',
     title: 'University Study Website',
     desc: 'Sign up page using <strong>HTML CSS</strong> and <strong>JavaScript</strong> with <strong>PHP</strong> backend and <strong>PHPmailer</strong> for email confirmation.',
     link: '#',
   },
   {
-    img: '/cours3.png',
+    img: 'cours3.png',
     title: 'University Study Website',
     desc: 'User Profile with image upload, login/logout system, courses section, and search bar.',
     link: '#',

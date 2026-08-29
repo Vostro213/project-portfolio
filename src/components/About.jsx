@@ -52,7 +52,7 @@ export default function About() {
             </div>
 
             <div className="about-actions">
-              <a href="/Ishak-Cv-Professional.pdf" download className="tag-btn">
+              <a href="Ishak-Cv-Professional.pdf" download className="tag-btn">
                 <i className="fas fa-download"></i> Download CV
               </a>
             </div>
@@ -63,7 +63,7 @@ export default function About() {
           </div>
 
           <div className="about-image">
-            <img src="/about-img.jpg" alt="About" loading="lazy" />
+            <img src="about-img.jpg" alt="About" loading="lazy" />
           </div>
 
           <div className="certificates">

@@ -45,7 +45,7 @@ export default function Hero({ onNavigate }) {
   return (
     <section className="hero">
       <div className="hero-badge">開発者 ・ 東京</div>
-      <img src="/avatar.jpg" alt="Saim Ishak - Web Developer" className="hero-avatar" />
+      <img src="avatar.jpg" alt="Saim Ishak - Web Developer" className="hero-avatar" />
       <h1>Hi, my name is <span>Saim Ishak</span></h1>
       <div className="changing-text">
         <span>{display}</span>

@@ -11,7 +11,7 @@ import ScrollToTop from './components/ScrollToTop'
 import ChatBot from './components/ChatBot'
 
 const slides = [
-  '/slide1.jpg', '/slide2.jpg', '/slide3.jpg', '/slide4.jpg',
+  'slide1.jpg', 'slide2.jpg', 'slide3.jpg', 'slide4.jpg',
 ]
 
 export default function App() {
