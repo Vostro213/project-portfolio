@@ -8,6 +8,14 @@ const certs = [
   { icon: 'fas fa-pencil-ruler', label: 'UI/UX Design Introduction' },
 ]
 
+const facts = [
+  { k: 'Based in', v: 'Sidi Bel Abbès, Algeria' },
+  { k: 'Target', v: 'Full-stack roles, Japan' },
+  { k: 'Languages', v: 'Arabic · English · Japanese' },
+  { k: 'Visa status', v: 'Seeking internship / sponsorship' },
+  { k: 'Core stack', v: 'HTML · CSS · JS · React · PHP · MySQL' },
+]
+
 export default function About() {
   const [revealed, setRevealed] = useState(false)
   const ref = useRef(null)
@@ -30,43 +38,49 @@ export default function About() {
 
   return (
     <section className="about" id="about">
-      <div className="container" ref={ref}>
-        <h2 className="section-title">About me</h2>
+      <div className="wrap" ref={ref}>
+        <div className="section-head">
+          <span className="section-num">01</span>
+          <h2 className="section-title">About</h2>
+          <span className="section-jp">自己紹介</span>
+        </div>
 
         <div className="about-grid">
           <div>
-            <p className="about-text">
-              I'm a passionate Full Stack Developer with a Degree in Computer Science from{' '}
+            <p>
+              I'm a full-stack developer working across <strong>HTML, CSS, JavaScript, React,
+              PHP, and MySQL</strong> — building responsive web applications for real users, not
+              just demos. My recent work centers on a university study platform where I designed
+              and shipped dynamic features end to end: sign-up flows with email confirmation,
+              user profiles with image upload, authentication, and course search.
+            </p>
+            <p>
+              I'm methodical about handoffs: merging cleanly into existing codebases, documenting
+              decisions, and treating deployment as part of the product. I hold a Degree in
+              Computer Science from{' '}
               <a href="https://www.univ-sba.dz/en/home-new/" target="_blank" rel="noreferrer">
                 Université Djillali Liabès
               </a>.
-              I Specialize in Building responsive and interactive web applications using modern technologies like{' '}
-              <strong>HTML, CSS, JavaScript, React, PHP and MySQL</strong>. I am currently learning{' '}
-              <strong>Japanese (日本語)</strong> and open to an <strong>internship in Tokyo, Japan</strong>.
+              I'm currently learning <strong>Japanese (日本語)</strong> and am focused on
+              relocating to <strong>Tokyo, Japan</strong> — the city inspires my portfolio theme
+              as much as my career goal.
             </p>
-
-            <div className="info-box">
-              <p><i className="fas fa-calendar"></i> Age: 21</p>
-              <p><i className="fas fa-map-marker-alt"></i> Location: Algeria</p>
-              <p><i className="fas fa-language"></i> Languages: Arabic, English, Japanese</p>
-            </div>
-
-            <div className="about-actions">
-              <a href="Ishak-Cv-Professional.pdf" download className="tag-btn">
-                <i className="fas fa-download"></i> Download CV
-              </a>
-            </div>
-
             <blockquote className="quote">
               &ldquo;Turning ideas into reality through code. よろしくお願いします！&rdquo;
             </blockquote>
           </div>
+          <ul className="facts">
+            {facts.map(f => (
+              <li key={f.k}>
+                <span>{f.k}</span>
+                <span>{f.v}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div className="about-image">
-            <img src="about-img.jpg" alt="About" loading="lazy" />
-          </div>
-
-          <div className="certificates">
+        <div className="about-extras">
+          <div className="extra-card certificates">
             <h3><i className="fas fa-certificate"></i> Certificates</h3>
             <ul>
               {certs.map((c, i) => (
@@ -74,14 +88,27 @@ export default function About() {
                   key={i}
                   style={{
                     opacity: revealed ? 1 : 0,
-                    transform: revealed ? 'translateX(0)' : 'translateX(-20px)',
-                    transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s`,
+                    transform: revealed ? 'translateX(0)' : 'translateX(-16px)',
+                    transition: `opacity 0.6s var(--ease-smooth) ${i * 0.08}s, transform 0.6s var(--ease-smooth) ${i * 0.08}s`,
                   }}
                 >
                   <i className={c.icon}></i>
                   <span>{c.label}</span>
                 </li>
               ))}
+            </ul>
+          </div>
+          <div className="extra-card">
+            <h3><i className="fas fa-handshake"></i> Working strengths</h3>
+            <p style={{ color: 'var(--ink-soft)', fontSize: '0.92rem', marginBottom: '12px' }}>
+              What I bring to a team client — especially one in Japan — is reliability.
+            </p>
+            <ul>
+              <li><i className="fas fa-check"></i> Clean, maintainable React & PHP code</li>
+              <li><i className="fas fa-check"></i> Detail-oriented UI implementation</li>
+              <li><i className="fas fa-check"></i> Honest documentation of decisions</li>
+              <li><i className="fas fa-check"></i> Fast learner, open feedback</li>
+              <li><i className="fas fa-check"></i> Familiar with Agile workflows</li>
             </ul>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,27 +10,14 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ChatBot from './components/ChatBot'
 
-const slides = [
-  'slide1.jpg', 'slide2.jpg', 'slide3.jpg', 'slide4.jpg',
-]
-
 export default function App() {
   const [section, setSection] = useState('home')
   const [loading, setLoading] = useState(true)
   const [online, setOnline] = useState(navigator.onLine)
-  const [slideIdx, setSlideIdx] = useState(0)
-  const intervalRef = useRef(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 600)
     return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setSlideIdx(prev => (prev + 1) % slides.length)
-    }, 6000)
-    return () => clearInterval(intervalRef.current)
   }, [])
 
   useEffect(() => {
@@ -65,14 +52,7 @@ export default function App() {
 
   return (
     <>
-      <div className="header-stripe"></div>
-      {slides.map((src, i) => (
-        <div
-          key={src}
-          className={`bg-slide ${i === slideIdx ? 'active' : ''}`}
-          style={{ backgroundImage: `url(${src})` }}
-        />
-      ))}
+      <div className="grid-texture"></div>
       {!online && (
         <div className="offline-banner">
           <i className="fas fa-wifi-slash"></i> You are offline - some features may not work

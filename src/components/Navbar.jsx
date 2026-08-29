@@ -2,11 +2,11 @@ import { useState } from 'react'
 
 const links = [
   { key: 'home', href: '#home', icon: 'fa-home', label: 'Home' },
-  { key: 'about', href: '#about', icon: 'fa-user', label: 'About me' },
+  { key: 'about', href: '#about', icon: 'fa-user', label: 'About' },
   { key: 'timeline', href: '#timeline', icon: 'fa-route', label: 'Journey' },
   { key: 'skills', href: '#skills', icon: 'fa-code', label: 'Skills' },
-  { key: 'projects', href: '#projects', icon: 'fa-laptop-code', label: 'Projects' },
-  { key: 'contact', href: '#contact', icon: 'fa-envelope', label: 'Contact me' },
+  { key: 'projects', href: '#projects', icon: 'fa-laptop-code', label: 'Work' },
+  { key: 'contact', href: '#contact', icon: 'fa-envelope', label: 'Contact' },
 ]
 
 export default function Navbar({ active, onNavigate }) {
@@ -15,8 +15,8 @@ export default function Navbar({ active, onNavigate }) {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="logo" onClick={() => onNavigate('home')} style={{cursor: 'pointer'}}>
-          Portfolio
+        <div className="logo" onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>
+          Saim Ishak<span>.</span>
         </div>
         <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
           {links.map(l => (
@@ -30,7 +30,7 @@ export default function Navbar({ active, onNavigate }) {
                   setMenuOpen(false)
                 }}
               >
-                <i className={`fas ${l.icon}`}></i> {l.label}
+                {l.label}
               </a>
             </li>
           ))}

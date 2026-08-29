@@ -1,14 +1,39 @@
 import { useEffect, useRef, useState } from 'react'
 
-const skills = [
-  { icon: 'fab fa-html5', name: 'HTML5', width: '90%', href: 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5' },
-  { icon: 'fab fa-css3-alt', name: 'CSS3', width: '85%', href: 'https://www.css3.info/' },
-  { icon: 'fab fa-js-square', name: 'JavaScript', width: '75%', href: 'https://www.w3schools.com/js/' },
-  { icon: 'fab fa-react', name: 'React', width: '65%', href: 'https://react.dev/' },
-  { icon: 'fas fa-shield-alt', name: 'Cybersecurity', width: '60%', href: 'https://www.cisco.com/site/us/en/learn/topics/security/what-is-cybersecurity.html' },
-  { icon: 'fab fa-php', name: 'PHP', width: '70%', href: 'https://www.php.net/' },
-  { icon: 'fas fa-database', name: 'MySQL', width: '68%', href: 'https://www.mysql.com/' },
-  { icon: 'fab fa-git-alt', name: 'Git', width: '55%', href: 'https://git-scm.com/' },
+const columns = [
+  {
+    title: 'Frontend',
+    icon: 'fas fa-palette',
+    items: [
+      'HTML5',
+      'CSS3 (flexbox, grid, animations)',
+      'JavaScript (ES6+)',
+      'React (hooks, state, effects)',
+      'Responsive / UI-UX implementation',
+    ],
+  },
+  {
+    title: 'Backend',
+    icon: 'fas fa-server',
+    items: [
+      'PHP (procedural & OOP basics)',
+      'MySQL — relational data design',
+      'REST-style API endpoints',
+      'Auth, sessions & image upload',
+      'PHPMailer email confirmation',
+    ],
+  },
+  {
+    title: 'Delivery & Exploration',
+    icon: 'fas fa-rocket',
+    items: [
+      'Git & GitHub',
+      'GitHub Actions (CI/CD on this site)',
+      'GitHub Pages deployment',
+      'Linux basics',
+      'Cybersecurity fundamentals',
+    ],
+  },
 ]
 
 export default function Skills() {
@@ -34,7 +59,7 @@ export default function Skills() {
 
   useEffect(() => {
     if (!visible) return
-    skills.forEach((_, i) => {
+    columns.forEach((_, i) => {
       setTimeout(() => {
         setRevealed(prev => ({ ...prev, [i]: true }))
       }, i * 150)
@@ -43,35 +68,28 @@ export default function Skills() {
 
   return (
     <section className="skills" id="skills" ref={ref}>
-      <h2 className="section-title">My Skills</h2>
-      <div className="skills-container">
-        {skills.map((s, i) => (
-          <a
-            key={s.name}
-            href={s.href}
-            target="_blank"
-            rel="noreferrer"
-            className={`skill-link ${revealed[i] ? 'visible' : ''}`}
-            title={`Learn more about ${s.name}`}
-            style={{ transitionDelay: `${i * 80}ms` }}
-          >
-            <div className="skill-card">
-              <i className={s.icon}></i>
-              <h3>{s.name}</h3>
-              <div className="progress-bar">
-                <div
-                  className="progress"
-                  style={{
-                    width: revealed[i] ? s.width : '0%',
-                    transitionDelay: `${i * 150}ms`,
-                  }}
-                >
-                  {revealed[i] ? s.width : ''}
-                </div>
-              </div>
+      <div className="wrap">
+        <div className="section-head">
+          <span className="section-num">03</span>
+          <h2 className="section-title">Skills</h2>
+          <span className="section-jp">技術スタック</span>
+        </div>
+        <div className="skill-cols">
+          {columns.map((col, i) => (
+            <div
+              className={`skill-col skill-col-enter ${revealed[i] ? 'visible' : ''}`}
+              key={col.title}
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              <h3><i className={col.icon}></i>{col.title}</h3>
+              <ul>
+                {col.items.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
-          </a>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

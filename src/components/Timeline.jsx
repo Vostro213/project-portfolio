@@ -57,27 +57,31 @@ export default function Timeline() {
 
   return (
     <section className="timeline-section" id="timeline" ref={ref}>
-      <h2 className="section-title">My Journey</h2>
-      <div className="timeline">
-        {items.map((item, i) => (
-          <div
-            className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'} ${revealed[i] ? 'visible' : ''}`}
-            key={item.title}
-            style={{
-              transitionDelay: `${i * 0.1}s`,
-            }}
-          >
-            <div className="timeline-dot">
-              <i className={item.icon}></i>
+      <div className="wrap">
+        <div className="section-head">
+          <span className="section-num">02</span>
+          <h2 className="section-title">Journey</h2>
+          <span className="section-jp">経歴</span>
+        </div>
+        <div className="timeline">
+          {items.map((item, i) => (
+            <div
+              className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'} ${revealed[i] ? 'visible' : ''}`}
+              key={item.title}
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <div className="timeline-dot">
+                <i className={item.icon}></i>
+              </div>
+              <div className="timeline-card">
+                <span className="timeline-year">{item.year}</span>
+                <h3>{item.title}</h3>
+                <h4>{item.org}</h4>
+                <p>{item.desc}</p>
+              </div>
             </div>
-            <div className="timeline-card">
-              <span className="timeline-year">{item.year}</span>
-              <h3>{item.title}</h3>
-              <h4>{item.org}</h4>
-              <p>{item.desc}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 
-const words = ["Full Stack Developer", "I create modern web apps", "Learning Japanese (日本語)", "Open to Tokyo, Japan"]
+const words = [
+  'React · PHP · MySQL',
+  'Clean, reliable web applications',
+  '日本語を勉強しています',
+  'Building for a team in Tokyo',
+]
 
 export default function Hero({ onNavigate }) {
   const [display, setDisplay] = useState('')
@@ -43,36 +48,46 @@ export default function Hero({ onNavigate }) {
   }, [])
 
   return (
-    <section className="hero">
-      <div className="hero-badge">開発者 ・ 東京</div>
-      <img src="avatar.jpg" alt="Saim Ishak - Web Developer" className="hero-avatar" />
-      <h1>Hi, my name is <span>Saim Ishak</span></h1>
-      <div className="changing-text">
-        <span>{display}</span>
-        <span className="cursor" style={{ opacity: cursor ? 1 : 0 }}>|</span>
+    <header className="hero">
+      <div className="wrap hero-grid">
+        <div>
+          <div className="eyebrow">Full-Stack Developer · Open to relocation — Japan</div>
+          <h1>
+            Building clean, reliable
+            <br />
+            web products <span className="accent">end&nbsp;to&nbsp;end.</span>
+          </h1>
+          <div className="changing-text">
+            <span>{display}</span>
+            <span className="cursor" style={{ opacity: cursor ? 1 : 0 }}>|</span>
+          </div>
+          <p className="hero-jp">日本での就業機会を探しているフルスタック開発者です。丁寧で正確な仕事を心がけています。</p>
+          <div className="hero-actions">
+            <a
+              href="#projects"
+              className="btn btn-primary"
+              onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('projects') }}
+            >
+              See featured work
+            </a>
+            <a
+              href="#contact"
+              className="btn btn-ghost"
+              onClick={(e) => { e.preventDefault(); if (onNavigate) onNavigate('contact') }}
+            >
+              Get in touch
+            </a>
+            <a
+              href="Ishak-Cv-Professional.pdf"
+              download
+              className="btn btn-ghost"
+            >
+              <i className="fas fa-download"></i> CV
+            </a>
+          </div>
+        </div>
+        <div className="tategaki">開発者・東京へ</div>
       </div>
-      <div className="hero-buttons">
-        <a
-          href="#about"
-          className="tag"
-          onClick={(e) => {
-            e.preventDefault()
-            if (onNavigate) onNavigate('about')
-          }}
-        >
-          Know more
-        </a>
-        <a
-          href="#contact"
-          className="tag tag-alt"
-          onClick={(e) => {
-            e.preventDefault()
-            if (onNavigate) onNavigate('contact')
-          }}
-        >
-          <i className="fas fa-paper-plane"></i> Contact me
-        </a>
-      </div>
-    </section>
+    </header>
   )
 }
