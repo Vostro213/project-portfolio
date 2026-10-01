@@ -32,6 +32,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Chat engine tests
+        run: npm run test:chat
+
       - name: Smoke test
         run: npm run smoke
 

@@ -43,12 +43,39 @@ No CSS framework and no UI library — the styling layer is written from scratch
 
 ## Testing
 
-`npm run smoke` renders all seven sections through `react-dom/server` and fails if any of them
+Two suites run on every push.
+
+**`npm run smoke`** renders all seven sections through `react-dom/server` and fails if any of them
 throws. It exists because a production build and ESLint both pass while a section can still crash
 the browser at runtime — a missing optional field in a content array is invisible to both, but takes
-down the whole page. The check runs in CI on every push, so that class of bug cannot ship.
+down the whole page. It also validates that each section actually produces markup rather than an
+empty shell.
 
-It also validates that each section actually produces markup rather than an empty shell.
+**`npm run test:chat`** covers the chatbot's question matcher with 27 assertions: 23 questions that
+must route to the right topic, and 4 that must return no match at all so the assistant says it does
+not know instead of guessing. Both suites run in `ci.yml` and again in `deploy.yml` before anything
+is published.
+
+## The chatbot
+
+Not a language model — a deterministic matcher in `src/lib/chatEngine.js`. No API key, no network
+call, no cost, and it cannot hallucinate because it only ever returns text written in the knowledge
+base.
+
+How a question is resolved:
+
+1. Lowercase, strip punctuation and accents.
+2. Drop stop words, so "what do you know about the projects" reduces to its content words.
+3. Stem each token and map synonyms — `technologies` → `stack`, `hire` → `contact`, `shop` → `retail`.
+4. Score every knowledge entry: exact match scores 1, a Levenshtein similarity of 0.72+ scores 0.75,
+   prefix and substring matches score 0.7, and shared character bigrams score 0.6. Typo tolerance is
+   why "sollolif" still reaches the Solo Life entry.
+5. Weight the score by how much of the question was actually matched, so a long question that only
+   hits one keyword out of ten does not win.
+6. Below the confidence threshold, return no match and the assistant offers suggestions instead of
+   inventing an answer.
+
+Follow-up chips are rebuilt from each answer, so the next question is one tap away.
 
 ## Architecture
 
@@ -79,9 +106,12 @@ the top of each file, matching the pattern already used by `Timeline.jsx` and `C
 │   └── deploy.yml        same checks, then publish to GitHub Pages on push to master
 ├── public/               static assets (CV, course-platform screenshots, favicon)
 ├── scripts/
-│   └── smoke.mjs         server-side render check for all seven sections
+│   ├── chat-engine.test.mjs   27 assertions for the chatbot question matcher
+│   └── smoke.mjs              server-side render check for all seven sections
 ├── src/
 │   ├── components/       one file per section, plus ChatBot / Footer / Navbar / ScrollToTop
+│   ├── lib/
+│   │   └── chatEngine.js tokeniser, stemmer, synonyms and scorer for the chatbot
 │   ├── App.jsx           layout, section state and hash routing
 │   ├── index.css         all styles
 │   └── main.jsx          entry point
@@ -99,6 +129,7 @@ npm run build      # production build to dist/
 npm run preview    # preview the production build locally
 npm run lint       # run ESLint
 npm run smoke      # render every section server-side to catch runtime errors
+npm run test:chat  # 27 assertions for the chatbot's question matcher
 ```
 
 Requires Node.js 20 or newer.

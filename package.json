@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "smoke": "node scripts/smoke.mjs",
+    "test:chat": "node scripts/chat-engine.test.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

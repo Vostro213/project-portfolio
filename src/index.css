@@ -600,14 +600,32 @@ footer {
 .chat-msg.bot .chat-bubble { background: var(--white); border: 1px solid var(--line); color: var(--ink); }
 .chat-msg.user .chat-bubble { background: var(--indigo); color: var(--white); }
 
-.chat-quick { display: flex; gap: 6px; padding: 10px 12px; flex-wrap: wrap; background: var(--white); }
+.chat-quick {
+  display: flex; gap: 6px; padding: 10px 12px;
+  flex-wrap: wrap; background: var(--white);
+  border-top: 1px solid var(--line);
+}
 .chat-chip {
   font-size: 0.72rem; padding: 5px 10px;
   border: 1px solid var(--line); background: var(--bg);
   color: var(--ink-soft); cursor: pointer; border-radius: 999px;
-  transition: all .2s;
+  transition: all .2s; text-align: left;
 }
-.chat-chip:hover { border-color: var(--gold); color: var(--indigo); }
+.chat-chip:hover:not(:disabled) { border-color: var(--gold); color: var(--indigo); background: var(--white); }
+.chat-chip:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.chat-typing { display: flex; gap: 4px; align-items: center; padding: 12px 14px; }
+.chat-typing span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ink-soft); opacity: 0.5;
+  animation: typingDot 1.2s infinite ease-in-out;
+}
+.chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
 
 .chat-footer { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--line); background: var(--white); }
 .chat-footer input {
@@ -620,7 +638,8 @@ footer {
   border: 1px solid var(--indigo); background: var(--indigo);
   color: var(--white); border-radius: 2px; padding: 0 14px; cursor: pointer;
 }
-.chat-footer button:hover { background: var(--gold); border-color: var(--gold); }
+.chat-footer button:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); }
+.chat-footer button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ============ REVEAL UTILS ============ */
 .fade-enter {
