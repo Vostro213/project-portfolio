@@ -5,33 +5,56 @@ const columns = [
     title: 'Frontend',
     icon: 'fas fa-palette',
     items: [
-      'HTML5',
-      'CSS3 (flexbox, grid, animations)',
-      'JavaScript (ES6+)',
-      'React (hooks, state, effects)',
-      'Responsive / UI-UX implementation',
+      'React 19 — hooks, state, effects',
+      'TypeScript 6 — typed domain models',
+      'JavaScript ES6+',
+      'Zustand — state orchestration',
+      'Tailwind CSS v4 & hand-written CSS',
+      'Hand-rolled SVG charts, zero chart libs',
+      'RTL / Arabic UI, CSS logical properties',
+      'Responsive from 320px up',
     ],
   },
   {
-    title: 'Backend',
+    title: 'Backend & Desktop',
     icon: 'fas fa-server',
     items: [
-      'PHP (procedural & OOP basics)',
-      'MySQL — relational data design',
-      'REST-style API endpoints',
-      'Auth, sessions & image upload',
-      'PHPMailer email confirmation',
+      'Python 3.14 — PySide6 & Flet front-ends',
+      'Tauri 2.12 — native desktop shell',
+      'Rust — plugin registration, CSP',
+      'SQLite — schema design & migrations',
+      'PHP — procedural & OOP',
+      'MySQL — relational modelling',
+      'Atomic stock writes, guarded UPDATEs',
+      'ctypes — raw ESC/POS device access',
     ],
   },
   {
-    title: 'Delivery & Exploration',
+    title: 'Engineering',
+    icon: 'fas fa-shield-alt',
+    items: [
+      'Automated testing — 76 cases, no framework',
+      'Fault injection in the test harness',
+      'Pure-function rules engines',
+      'Layered data access, UI-independent',
+      'Git & GitHub',
+      'GitHub Actions CI/CD on every push',
+      'GitHub Pages deployment',
+      'Content Security Policy hardening',
+    ],
+  },
+  {
+    title: 'Tooling & Domain',
     icon: 'fas fa-rocket',
     items: [
-      'Git & GitHub',
-      'GitHub Actions (CI/CD on this site)',
-      'GitHub Pages deployment',
-      'Linux basics',
-      'Cybersecurity fundamentals',
+      'Vite 8 build tooling',
+      'ESLint 10 — hooks & refresh rules',
+      'PyInstaller — onefile & onedir builds',
+      'Pillow, openpyxl, qrcode, python-barcode',
+      'arabic-reshaper & python-bidi',
+      'Linux & Windows internals',
+      'Cybersecurity fundamentals, OWASP Top 10',
+      'Japanese (日本語) — learning',
     ],
   },
 ]
@@ -51,7 +74,7 @@ export default function Skills() {
           observer.disconnect()
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -62,7 +85,7 @@ export default function Skills() {
     columns.forEach((_, i) => {
       setTimeout(() => {
         setRevealed(prev => ({ ...prev, [i]: true }))
-      }, i * 150)
+      }, i * 120)
     })
   }, [visible])
 

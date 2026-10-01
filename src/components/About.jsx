@@ -1,19 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
 
-const certs = [
-  { icon: 'fab fa-html5', label: 'HTML & CSS Fundamentals' },
-  { icon: 'fab fa-js', label: 'JavaScript Essentials' },
-  { icon: 'fab fa-react', label: 'React Basics' },
-  { icon: 'fas fa-shield-alt', label: 'Cybersecurity Principles' },
-  { icon: 'fas fa-pencil-ruler', label: 'UI/UX Design Introduction' },
-]
-
 const facts = [
   { k: 'Based in', v: 'Sidi Bel Abbès, Algeria' },
   { k: 'Target', v: 'Full-stack roles, Japan' },
   { k: 'Languages', v: 'Arabic · English · Japanese' },
-  { k: 'Visa status', v: 'Seeking internship / sponsorship' },
-  { k: 'Core stack', v: 'HTML · CSS · JS · React · PHP · MySQL' },
+  { k: 'Focus', v: 'Desktop apps & full-stack systems' },
+  { k: 'Core stack', v: 'Tauri · React · TypeScript · Python · SQLite' },
+]
+
+const certs = [
+  { icon: 'fab fa-html5', label: 'HTML & CSS Fundamentals' },
+  { icon: 'fab fa-js', label: 'JavaScript Essentials' },
+  { icon: 'fab fa-react', label: 'React Basics' },
+  { icon: 'fab fa-python', label: 'Python & Desktop Development' },
+  { icon: 'fas fa-shield-alt', label: 'Cybersecurity Principles' },
+  { icon: 'fas fa-pencil-ruler', label: 'UI/UX Design Introduction' },
+]
+
+const strengths = [
+  'Rules engines isolated from the UI and covered by tests',
+  'Data layers that never import a view framework',
+  'Arabic RTL interfaces, including PDF and printed output',
+  'Desktop apps packaged and installed as real binaries',
+  'CI that refuses to ship a broken build',
 ]
 
 export default function About() {
@@ -48,25 +57,25 @@ export default function About() {
         <div className="about-grid">
           <div>
             <p>
-              I'm a full-stack developer working across <strong>HTML, CSS, JavaScript, React,
-              PHP, and MySQL</strong> — building responsive web applications for real users, not
-              just demos. My recent work centers on a university study platform where I designed
-              and shipped dynamic features end to end: sign-up flows with email confirmation,
-              user profiles with image upload, authentication, and course search.
+              I build complete applications rather than demos — <strong>native desktop programs that
+              install on Windows, and web systems with a real database behind them</strong>. My
+              recent work is a Tauri and React habit tracker with its own progression engine, and a
+              Python point-of-sale system handling cash sales, credit ledgers, invoices and stock
+              control for a shop.
             </p>
             <p>
-              I'm methodical about handoffs: merging cleanly into existing codebases, documenting
-              decisions, and treating deployment as part of the product. I hold a Degree in
-              Computer Science from{' '}
+              The part I care about most is the part most portfolios skip: whether the thing still
+              works six months later. That means keeping business logic out of the view layer,
+              testing it without a heavyweight framework, and writing down the decisions I made
+              along the way. I hold a Degree in Computer Science from{' '}
               <a href="https://www.univ-sba.dz/en/home-new/" target="_blank" rel="noreferrer">
                 Université Djillali Liabès
-              </a>.
-              I'm currently learning <strong>Japanese (日本語)</strong> and am focused on
-              relocating to <strong>Tokyo, Japan</strong> — the city inspires my portfolio theme
-              as much as my career goal.
+              </a>
+              , and I am learning <strong>Japanese (日本語)</strong> to relocate to{' '}
+              <strong>Tokyo, Japan</strong>.
             </p>
             <blockquote className="quote">
-              &ldquo;Turning ideas into reality through code. よろしくお願いします！&rdquo;
+              &ldquo;Finish the job. Ship it, then keep it working. よろしくお願いします。&rdquo;
             </blockquote>
           </div>
           <ul className="facts">
@@ -85,7 +94,7 @@ export default function About() {
             <ul>
               {certs.map((c, i) => (
                 <li
-                  key={i}
+                  key={c.label}
                   style={{
                     opacity: revealed ? 1 : 0,
                     transform: revealed ? 'translateX(0)' : 'translateX(-16px)',
@@ -99,16 +108,14 @@ export default function About() {
             </ul>
           </div>
           <div className="extra-card">
-            <h3><i className="fas fa-handshake"></i> Working strengths</h3>
+            <h3><i className="fas fa-handshake"></i> What I bring to a team</h3>
             <p style={{ color: 'var(--ink-soft)', fontSize: '0.92rem', marginBottom: '12px' }}>
-              What I bring to a team client — especially one in Japan — is reliability.
+              Especially to a team client in Japan — reliability, stated plainly.
             </p>
             <ul>
-              <li><i className="fas fa-check"></i> Clean, maintainable React & PHP code</li>
-              <li><i className="fas fa-check"></i> Detail-oriented UI implementation</li>
-              <li><i className="fas fa-check"></i> Honest documentation of decisions</li>
-              <li><i className="fas fa-check"></i> Fast learner, open feedback</li>
-              <li><i className="fas fa-check"></i> Familiar with Agile workflows</li>
+              {strengths.map(s => (
+                <li key={s}><i className="fas fa-check"></i>{s}</li>
+              ))}
             </ul>
           </div>
         </div>

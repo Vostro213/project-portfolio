@@ -21,3 +21,7 @@ npm-debug.log*
 
 # Misc
 *.local
+
+# Windows
+desktop.ini
+Thumbs.db

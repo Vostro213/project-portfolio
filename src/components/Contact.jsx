@@ -7,7 +7,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="wrap">
         <div className="section-head">
-          <span className="section-num">05</span>
+          <span className="section-num">06</span>
           <h2 className="section-title">Outside of Work</h2>
           <span className="section-jp">趣味</span>
         </div>

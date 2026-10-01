@@ -5,6 +5,7 @@ const links = [
   { key: 'about', href: '#about', icon: 'fa-user', label: 'About' },
   { key: 'timeline', href: '#timeline', icon: 'fa-route', label: 'Journey' },
   { key: 'skills', href: '#skills', icon: 'fa-code', label: 'Skills' },
+  { key: 'approach', href: '#approach', icon: 'fa-compass', label: 'Approach' },
   { key: 'projects', href: '#projects', icon: 'fa-laptop-code', label: 'Work' },
   { key: 'contact', href: '#contact', icon: 'fa-envelope', label: 'Contact' },
 ]

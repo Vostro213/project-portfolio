@@ -10,23 +10,30 @@ const items = [
   },
   {
     year: '2024',
-    title: 'Full Stack Web Development',
+    title: 'Full-Stack Web Development',
     org: 'Self-taught + University Projects',
-    desc: 'Built real-world projects with HTML, CSS, JavaScript, React, PHP and MySQL.',
+    desc: 'Built the university course platform — PHP, MySQL, email confirmation flows and authentication.',
     icon: 'fas fa-code',
   },
   {
     year: '2025',
-    title: 'Cybersecurity Fundamentals',
-    org: 'Personal Learning Journey',
-    desc: 'Learning networking, Linux, OWASP Top 10 and ethical hacking basics in parallel.',
-    icon: 'fas fa-shield-alt',
+    title: 'Retail POS System',
+    org: 'Python · SQLite · PySide6',
+    desc: 'Built a full point-of-sale application: credit ledgers, stock control, QR invoices and thermal receipt printing, shipped as a Windows executable.',
+    icon: 'fas fa-cash-register',
+  },
+  {
+    year: '2025',
+    title: 'Solo Life — Desktop App',
+    org: 'Tauri 2 · React 19 · TypeScript',
+    desc: 'Shipped an offline-first habit tracker with its own XP and rank progression engine, 76 automated tests and native Windows installers.',
+    icon: 'fas fa-desktop',
   },
   {
     year: 'Now',
-    title: 'Open to Internship in Japan',
+    title: 'Open to Full-Stack Roles in Japan',
     org: 'Tokyo, Japan',
-    desc: 'Currently learning Japanese and eager to join a Japanese tech team.',
+    desc: 'Studying Japanese daily and looking to join a Japanese product team.',
     icon: 'fas fa-plane',
   },
 ]
@@ -44,12 +51,12 @@ export default function Timeline() {
           items.forEach((_, i) => {
             setTimeout(() => {
               setRevealed(prev => ({ ...prev, [i]: true }))
-            }, i * 200)
+            }, i * 140)
           })
           observer.disconnect()
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -68,7 +75,7 @@ export default function Timeline() {
             <div
               className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'} ${revealed[i] ? 'visible' : ''}`}
               key={item.title}
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              style={{ transitionDelay: `${i * 0.08}s` }}
             >
               <div className="timeline-dot">
                 <i className={item.icon}></i>
