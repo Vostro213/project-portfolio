@@ -41,6 +41,15 @@ No CSS framework and no UI library — the styling layer is written from scratch
 - SEO: canonical URL, Open Graph and Twitter Card meta, JSON-LD `Person` schema.
 - CV download at `public/Ishak-Cv-Professional.pdf`.
 
+## Testing
+
+`npm run smoke` renders all seven sections through `react-dom/server` and fails if any of them
+throws. It exists because a production build and ESLint both pass while a section can still crash
+the browser at runtime — a missing optional field in a content array is invisible to both, but takes
+down the whole page. The check runs in CI on every push, so that class of bug cannot ship.
+
+It also validates that each section actually produces markup rather than an empty shell.
+
 ## Architecture
 
 ```text
@@ -66,9 +75,11 @@ the top of each file, matching the pattern already used by `Timeline.jsx` and `C
 ```text
 .
 ├── .github/workflows/
-│   ├── ci.yml            lint + build on push and pull request
-│   └── deploy.yml        build and publish to GitHub Pages on push to master
+│   ├── ci.yml            lint + smoke test + build on push and pull request
+│   └── deploy.yml        same checks, then publish to GitHub Pages on push to master
 ├── public/               static assets (CV, course-platform screenshots, favicon)
+├── scripts/
+│   └── smoke.mjs         server-side render check for all seven sections
 ├── src/
 │   ├── components/       one file per section, plus ChatBot / Footer / Navbar / ScrollToTop
 │   ├── App.jsx           layout, section state and hash routing
@@ -87,6 +98,7 @@ npm run dev        # start dev server with HMR
 npm run build      # production build to dist/
 npm run preview    # preview the production build locally
 npm run lint       # run ESLint
+npm run smoke      # render every section server-side to catch runtime errors
 ```
 
 Requires Node.js 20 or newer.
@@ -95,8 +107,8 @@ Requires Node.js 20 or newer.
 
 Pushing to `master` runs two workflows:
 
-1. **`ci.yml`** — installs dependencies, runs `npm run lint`, runs `npm run build`.
-2. **`deploy.yml`** — repeats lint and build, then publishes `dist/` to GitHub Pages.
+1. **`ci.yml`** — installs dependencies, runs `npm run lint`, runs `npm run smoke`, runs `npm run build`.
+2. **`deploy.yml`** — repeats the same three checks, then publishes `dist/` to GitHub Pages.
 
 Repository **Settings → Pages → Source** must be set to **GitHub Actions**. The site is served from
 the `gh-pages` branch at `https://vostro213.github.io/project-portfolio/`.

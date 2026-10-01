@@ -23,6 +23,7 @@ const cases = [
       { v: '25', l: 'lines of Rust' },
       { v: '0', l: 'network calls' },
     ],
+    gallery: [],
   },
   {
     tag: 'Business Software',
@@ -169,7 +170,7 @@ export default function Projects() {
               </div>
             </div>
 
-            {c.gallery.length > 0 && (
+            {c.gallery?.length > 0 && (
               <div className="gallery">
                 {c.gallery.map(g => (
                   <figure className="visible" key={g.img}>
