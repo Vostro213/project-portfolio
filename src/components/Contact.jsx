@@ -20,13 +20,13 @@ export default function Contact() {
               color: 'var(--indigo)', fontFamily: "'Noto Sans JP', sans-serif", fontWeight: 600,
             }}
           >
-            学
+            <i className="fas fa-shield-halved" style={{ fontSize: '1.3rem' }}></i>
           </div>
           <p style={{ margin: 0, color: 'var(--ink-soft)', maxWidth: 600 }}>
-            When I'm not coding, I study cybersecurity fundamentals and ethical hacking basics — a
-            habit that keeps my systems thinking sharp. I also design logic-puzzle concepts with a
-            sci-fi aesthetic as a side creative outlet, and I'm steadily learning Japanese to
-            prepare for life and work in Tokyo.
+            When I'm not coding, I study cybersecurity fundamentals and ethical hacking — a habit
+            that keeps my systems thinking sharp. I also design logic-puzzle concepts with a
+            sci-fi aesthetic as a creative outlet, and I write up what I learn so the reasoning
+            survives after the project ships.
           </p>
         </div>
       </div>
@@ -35,8 +35,8 @@ export default function Contact() {
         <div className="wrap" style={{ padding: 0 }}>
           <h2>Let's talk.</h2>
           <p>
-            Open to full-stack and frontend roles in Japan. Happy to share more code, walk through
-            the project's CI/CD setup, or talk specifics about relocation timing.
+            Open to full-stack and desktop engineering roles, remote or on-site. Happy to share more
+            code, walk through the CI/CD setup, or talk specifics about a team's needs.
           </p>
           <div className="contact-links">
             <a href="mailto:ishaksaim0@gmail.com"><i className="fas fa-envelope"></i> Email</a>

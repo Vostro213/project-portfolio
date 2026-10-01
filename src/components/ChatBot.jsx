@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 
 const faqs = [
   { keywords: ['hi', 'hello', 'hey', 'good morning', 'good evening', 'salam', 'salut'], a: "Hello! Welcome. Ask me about my projects, my stack, or how to reach me 👋" },
-  { keywords: ['who are you', 'who is', 'tell me about', 'about you', 'introduce'], a: "I'm Saim Ishak, a full-stack developer from Sidi Bel Abbès, Algeria. I build native desktop applications and web systems, and I'm targeting product teams in Tokyo." },
+  { keywords: ['who are you', 'who is', 'tell me about', 'about you', 'introduce'], a: "I'm Saim Ishak, a full-stack developer from Sidi Bel Abbès, Algeria. I build native desktop applications and web systems, and I'm open to remote work or relocation for the right role." },
   { keywords: ['solo life', 'tauri', 'desktop', 'app'], a: 'Solo Life is an offline-first habit tracker built with Tauri 2, React 19 and TypeScript. It has its own XP and rank progression engine in 509 lines of pure functions, 76 automated test cases, and ships as real NSIS and MSI installers.' },
   { keywords: ['pos', 'shops', 'program', 'محل', 'retail', 'invoice', 'pos system'], a: 'A Python point-of-sale system with SQLite: cash and credit sales, a debt collection ledger, stock control, QR-verified PDF invoices and thermal receipt printing. Packaged as a 59MB standalone Windows executable.' },
   { keywords: ['test', 'testing', 'tests', 'coverage'], a: 'Solo Life has 76 test cases written directly on node:assert/strict with no test framework, including fault injection that simulates storage failure to prove a save error never destroys the previous good save.' },
@@ -11,10 +11,10 @@ const faqs = [
   { keywords: ['study', 'university', 'education', 'degree', 'school'], a: "I studied Computer Science at Université Djillali Liabès in Sidi Bel Abbès, Algeria, from 2020 to 2024." },
   { keywords: ['projects', 'project', 'done', 'built', 'portfolio'], a: 'Three: the Solo Life desktop app, a Python retail POS system, and a PHP/MySQL university course platform. Each has an engineering note explaining the architectural trade-offs involved.' },
   { keywords: ['contact', 'email', 'phone', 'reach', 'call', 'hire'], a: 'Email: ishaksaim0@gmail.com · Phone: +213 5 54 67 53 88 · GitHub: github.com/Vostro213 · LinkedIn: linkedin.com/in/ishak-saim-245549369' },
-  { keywords: ['languages', 'speak', 'arabic', 'english', 'japanese', 'language', 'japan', 'tokyo'], a: 'Arabic is my native language, I work in English, and I am learning Japanese. I am looking to relocate to Tokyo.' },
+  { keywords: ['languages', 'speak', 'arabic', 'english', 'french', 'language'], a: 'Arabic is my native language, I work professionally in English, and I also speak French.' },
   { keywords: ['age', 'how old'], a: 'I am 21 years old.' },
   { keywords: ['location', 'where', 'live', 'algeria', 'based'], a: 'I am based in Sidi Bel Abbès, Algeria.' },
-  { keywords: ['salary', 'visa', 'sponsorship', 'relocat', 'internship'], a: 'I am seeking an internship or a role with relocation support for Japan, and I am open to discussing timing and conditions.' },
+  { keywords: ['salary', 'visa', 'sponsorship', 'relocat', 'internship', 'remote', 'availability', 'available'], a: 'I am open to remote work and open to relocating for the right opportunity. Happy to discuss timing and conditions.' },
 ]
 
 const quickReplies = ['Who are you?', 'Tell me about Solo Life', 'What tests have you written?']

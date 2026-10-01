@@ -172,10 +172,12 @@ img { max-width: 100%; height: auto; }
   transition: opacity 0.1s;
 }
 
-.hero-jp {
-  margin-top: 10px;
-  font-family: 'Noto Sans JP', sans-serif; font-weight: 300;
-  font-size: 0.95rem; color: var(--ink-soft);
+.hero-lede {
+  margin-top: 14px;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  line-height: 1.8;
 }
 
 .hero-actions { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }

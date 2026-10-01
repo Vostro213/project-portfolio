@@ -31,10 +31,10 @@ const items = [
   },
   {
     year: 'Now',
-    title: 'Open to Full-Stack Roles in Japan',
-    org: 'Tokyo, Japan',
-    desc: 'Studying Japanese daily and looking to join a Japanese product team.',
-    icon: 'fas fa-plane',
+    title: 'Open to Full-Stack Opportunities',
+    org: 'Remote · Relocation available',
+    desc: 'Looking for a team where I can keep shipping complete, well-tested systems.',
+    icon: 'fas fa-paper-plane',
   },
 ]
 

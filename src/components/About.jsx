@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 
 const facts = [
   { k: 'Based in', v: 'Sidi Bel Abbès, Algeria' },
-  { k: 'Target', v: 'Full-stack roles, Japan' },
-  { k: 'Languages', v: 'Arabic · English · Japanese' },
   { k: 'Focus', v: 'Desktop apps & full-stack systems' },
+  { k: 'Languages', v: 'Arabic · English · French' },
+  { k: 'Work style', v: 'Remote-friendly, open to relocation' },
   { k: 'Core stack', v: 'Tauri · React · TypeScript · Python · SQLite' },
 ]
 
@@ -71,11 +71,10 @@ export default function About() {
               <a href="https://www.univ-sba.dz/en/home-new/" target="_blank" rel="noreferrer">
                 Université Djillali Liabès
               </a>
-              , and I am learning <strong>Japanese (日本語)</strong> to relocate to{' '}
-              <strong>Tokyo, Japan</strong>.
+              . I am open to <strong>remote work</strong> and to relocating for the right role.
             </p>
             <blockquote className="quote">
-              &ldquo;Finish the job. Ship it, then keep it working. よろしくお願いします。&rdquo;
+              &ldquo;Finish the job. Ship it, then keep it working.&rdquo;
             </blockquote>
           </div>
           <ul className="facts">
@@ -110,7 +109,7 @@ export default function About() {
           <div className="extra-card">
             <h3><i className="fas fa-handshake"></i> What I bring to a team</h3>
             <p style={{ color: 'var(--ink-soft)', fontSize: '0.92rem', marginBottom: '12px' }}>
-              Especially to a team client in Japan — reliability, stated plainly.
+              Generalises to any client — reliability, stated plainly.
             </p>
             <ul>
               {strengths.map(s => (

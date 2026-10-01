@@ -54,7 +54,7 @@ const columns = [
       'arabic-reshaper & python-bidi',
       'Linux & Windows internals',
       'Cybersecurity fundamentals, OWASP Top 10',
-      'Japanese (日本語) — learning',
+      'Technical documentation & architecture writing',
     ],
   },
 ]

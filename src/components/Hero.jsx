@@ -4,8 +4,9 @@ const words = [
   'Tauri 2 · React 19 · TypeScript',
   'Python · SQLite · PySide6',
   'Desktop apps that ship as real binaries',
-  '日本語を勉強しています',
-  'Building for a team in Tokyo',
+  'Systems with a real database',
+  'Clean architecture, covered by tests',
+  'Available for new opportunities',
 ]
 
 const stats = [
@@ -59,7 +60,7 @@ export default function Hero({ onNavigate }) {
     <header className="hero">
       <div className="wrap hero-grid">
         <div>
-          <div className="eyebrow">Full-Stack Developer · Open to relocation — Japan</div>
+          <div className="eyebrow">Full-Stack Developer · Desktop & Web Systems</div>
           <h1>
             I ship applications
             <br />
@@ -69,9 +70,10 @@ export default function Hero({ onNavigate }) {
             <span>{display}</span>
             <span className="cursor" style={{ opacity: cursor ? 1 : 0 }}>|</span>
           </div>
-          <p className="hero-jp">
-            デスクトップアプリからPOSシステムまで、最後まで丁寧に仕上げます。
-            日本での就業機会を探している開発者です。
+          <p className="hero-lede">
+            From native desktop binaries to web systems backed by a real database — I take a project
+            from the first line of code all the way to something that runs, installs and keeps
+            working.
           </p>
           <div className="hero-actions">
             <a
@@ -97,7 +99,7 @@ export default function Hero({ onNavigate }) {
             </a>
           </div>
         </div>
-        <div className="tategaki">開発者・東京へ</div>
+        <div className="tategaki">コードから実運用まで</div>
       </div>
 
       <div className="wrap">

@@ -1,6 +1,6 @@
 # Portfolio — Saim Ishak
 
-Personal portfolio for **Saim Ishak**, a full-stack developer targeting product teams in Japan.
+Personal portfolio for **Saim Ishak**, a full-stack developer who builds native desktop applications and web systems. Open to remote work and relocation.
 
 **Live site:** https://vostro213.github.io/project-portfolio/
 
